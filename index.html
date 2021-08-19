@@ -68,7 +68,13 @@ Twitter : @taikoclane_roii</p>
     <script>
           function backgroundimage(id){
               document.getElementById("bi").innerHTML = '<img style="width: 290px;height: 44px;margin-bottom: -28px;position:relative;z-index:0;" src="name_plate_0_' + id + '_640.png">';
-          }
+               html2canvas(document.getElementById("nameplate"),{
+		  onrendered: function(canvas){
+		    var imgData = canvas.toDataURL();
+		    document.getElementById("ss").href = imgData;
+		  }
+		});
+	  }
 
           backgroundimage(0)
           
