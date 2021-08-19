@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Taiko Name Plate Editor</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Youtubeなどで使える太鼓の達人のネームプレートエディターです。"/>
+    <meta name="keyword" content="太鼓の達人,Taiko Name Plate Editor,TNPE,Roii.py,Roii,ネームプレート,Youtube"/>
+    <meta property="og:title" content="Taiko Name Plate Editor" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://Roiipy.github.io/tnp" />
+    <meta property="og:description" content="Youtubeなどで使える太鼓の達人のネームプレートエディターです。"/>
+    <meta name="theme-color" content="#7fffd4" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        button {
+            border: none; 
+            outline: none;
+            background: transparent;
+        }
 
+
+        body {
+            font-family: sans-serif;
+        }  
+
+    </style>
+  </head>
+  <body style="text-align: center; background: #ff7f00;">
+    <header  style="background-image:url('https://donderhiroba.jp/image/sp/640/menu_03_640.png');color:#ffffff;">
+        <h1>Taiko Name Plate Editor</h1>
+	</header>
+          <div style="width:300px; margin:0 auto; padding:10px 0; background: #ffcc00;">
+            <div id="nameplate">
+          <div id="bi"></div>
+          <div id="n1" style="height: 20px;text-align: center;margin-top: -25px;position:relative;z-index:1;font-weight: bold;text-shadow: 0 0 0px #000;">
+            ドンだーデビュー！		</div>
+                <div id="n2" style="height:24px;text-align:center;position:relative;z-index:1;font-weight: bold;font-size: 18px;text-shadow: 0 0 0px #000;">
+                どんちゃん		</div></div>
+                <a href="" id="ss" download="html_ss.png">ネームプレートをダウンロード</a>
+
+                <h3>称号</h3>
+                <input type="text" style="border-radius: 10px; outline:none" id="i1">
+                <h3>名前</h3>
+                <input type="text" style="border-radius: 10px; outline:none" id="i2">
+      <h3>プレート背景</h3>
+      <h5>タッチで選択</h5>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(0);"><img width="250" height="60" src="https://donderhiroba.jp/image/sp/640/name_plate_0_0_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(1);"><img width="250" height="60" src="https://donderhiroba.jp/image/sp/640/name_plate_0_1_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(2);"><img width="250" height="60" src="https://donderhiroba.jp/image/sp/640/name_plate_0_2_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(3);"><img width="250" height="60" src="https://donderhiroba.jp/image/sp/640/name_plate_0_3_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(4);"><img width="250" height="60" src="https://donderhiroba.jp/image/sp/640/name_plate_0_4_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(5);"><img width="250" height="60" src="https://donderhiroba.jp/image/sp/640/name_plate_0_5_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(6);"><img width="250" height="60" src="https://donderhiroba.jp/image/sp/640/name_plate_0_6_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(7);"><img width="250" height="60" src="https://donderhiroba.jp/image/sp/640/name_plate_0_7_640.png"></button></p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+ 
+    <script>
+          function backgroundimage(id){
+              document.getElementById("bi").innerHTML = '<img style="width: 290px;height: 44px;margin-bottom: -24px;position:relative;z-index:0;" src="name_plate_0_' + id + '_640.png">';
+          }
+
+          backgroundimage(0)
+          
+
+
+$(function() {
+  var $input = $('#i1');
+  var $output = $('#n1');
+  $input.on('input', function(event) {
+    var value = $input.val();
+    $output.text(value);
+    html2canvas(document.getElementById("nameplate"),{
+  onrendered: function(canvas){
+    var imgData = canvas.toDataURL();
+    document.getElementById("ss").href = imgData;
+  }
+});
+  });
+
+  var $input2 = $('#i2');
+  var $output2 = $('#n2');
+  $input2.on('input', function(event) {
+    var value = $input2.val();
+    $output2.text(value);
+    html2canvas(document.getElementById("nameplate"),{
+  onrendered: function(canvas){
+    var imgData = canvas.toDataURL();
+    document.getElementById("ss").href = imgData;
+  }
+});
+  });
+});
+
+
+window.onload = function(){
+  html2canvas(document.getElementById("nameplate"),{
+    onrendered: function(canvas){
+      var data = canvas.toDataURL("image/png");
+      document.getElementById("ss").href = data;
+    }
+  });
+}
+
+
+
+
+      </script>
+  </body>
+</html>
