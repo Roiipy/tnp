@@ -53,7 +53,9 @@
       <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(5);"><img width="250" height="60" src="name_plate_0_5_640.png"></button></p>
       <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(6);"><img width="250" height="60" src="name_plate_0_6_640.png"></button></p>
       <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(7);"><img width="250" height="60" src="name_plate_0_7_640.png"></button></p>
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h1>Taiko Name Plate Editor</h1>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage2(0);"><img width="250" height="60" src="name_plate_0_640.png"></button></p> 
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage2(1);"><img width="250" height="60" src="name_plate_1_640.png"></button></p>
+   <article class="markdown-body entry-content container-lg" itemprop="text"><h1>Taiko Name Plate Editor</h1>
 <p>太鼓の達人のネームプレートを作れるエディター<br>
 このプログラムの 自作発言 二次配布 改造等をすべて禁じます。</p>
 <h1>利用するとき</h1>
@@ -75,7 +77,15 @@ Twitter : @taikoclane_roii</p>
 		  }
 		});
 	  }
-
+          function backgroundimage2(id){
+              document.getElementById("bi").innerHTML = '<img style="width: 290px;height: 44px;margin-bottom: -28px;position:relative;z-index:0;" src="name_plate_' + id + '_640.png">';
+               html2canvas(document.getElementById("nameplate"),{
+		  onrendered: function(canvas){
+		    var imgData = canvas.toDataURL();
+		    document.getElementById("ss").href = imgData;
+		  }
+		});
+	  }
           backgroundimage(0)
           
 
