@@ -132,9 +132,11 @@ $(function() {
   });
 
   var $input3 = $('#i3');
-  var element = document.getElementById("n3"); 
+  var element = document.getElementById("n3");   
+  var element2 = document.getElementById("bi"); 
   $input3.on('input', function(event) {
-    var value = $input3.val();
+    var value = $input3.val(); 
+    element2.style.marginBottom = value+"px";
     element.style.marginBottom = value+"px";
     html2canvas(document.getElementById("nameplate"),{
   onrendered: function(canvas){
