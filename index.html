@@ -52,7 +52,7 @@
 <h5>プレート位置変更</h5>
 <p>プレート位置が端末によってズレます。自分の端末に合わせて調節してください。</p>
 <p>※ダウンロードした画像がズレていないか確かめてください。</p>
-<input type="number" value="-28" id="n3">
+<input type="number" style="border-radius: 10px; outline:none" value="-28" id="i3">
                 <h3>称号</h3>
                 <input type="text" style="border-radius: 10px; outline:none" id="i1">
                 <h3>名前</h3>
@@ -83,7 +83,7 @@ Twitter : @taikoclane_roii</p>
  
     <script>
           function backgroundimage(id){
-              document.getElementById("bi").innerHTML = '<img id="i3" style="width: 290px;height: 44px;margin-bottom: -28px;position:relative;z-index:0;" src="name_plate_0_' + id + '_640.png">';
+              document.getElementById("bi").innerHTML = '<img id="n3" class="plate" style="width: 290px;height: 44px;margin-bottom: -28px;position:relative;z-index:0;" src="name_plate_0_' + id + '_640.png">';
                html2canvas(document.getElementById("nameplate"),{
 		  onrendered: function(canvas){
 		    var imgData = canvas.toDataURL();
@@ -92,7 +92,7 @@ Twitter : @taikoclane_roii</p>
 		});
 	  }
           function backgroundimage2(id){
-              document.getElementById("bi").innerHTML = '<img id="i3" style="width: 290px;height: 44px;margin-bottom: -28px;position:relative;z-index:0;" src="name_plate_' + id + '_640.png">';
+              document.getElementById("bi").innerHTML = '<img id="n3" class="plate" style="width: 290px;height: 44px;margin-bottom: -28px;position:relative;z-index:0;" src="name_plate_' + id + '_640.png">';
                html2canvas(document.getElementById("nameplate"),{
 		  onrendered: function(canvas){
 		    var imgData = canvas.toDataURL();
@@ -132,10 +132,10 @@ $(function() {
   });
 
   var $input3 = $('#i3');
-  var $output3 = $('#n3');
+  var element = document.getElementById("n3"); 
   $input3.on('input', function(event) {
     var value = $input3.val();
-    document.getElementById('i3').margin-bottom = value;
+    element.style.marginBottom = value+"px";
     html2canvas(document.getElementById("nameplate"),{
   onrendered: function(canvas){
     var imgData = canvas.toDataURL();
