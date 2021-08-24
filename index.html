@@ -68,6 +68,15 @@
       <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(7);"><img width="250" height="60" src="name_plate_0_7_640.png"></button></p>
       <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage2(0);"><img width="250" height="60" src="name_plate_0_640.png"></button></p> 
       <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage2(1);"><img width="250" height="60" src="name_plate_1_640.png"></button></p>
+		  <!--Dan-->
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage3(0);"><img width="250" height="60" src="name_plate_dan_0_0_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage3(1);"><img width="250" height="60" src="name_plate_dan_0_1_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage3(2);"><img width="250" height="60" src="name_plate_dan_0_2_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage3(3);"><img width="250" height="60" src="name_plate_dan_0_3_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage3(4);"><img width="250" height="60" src="name_plate_dan_0_4_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage3(5);"><img width="250" height="60" src="name_plate_dan_0_5_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage3(6);"><img width="250" height="60" src="name_plate_dan_0_6_640.png"></button></p>
+      <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage3(7);"><img width="250" height="60" src="name_plate_dan_0_7_640.png"></button></p>
    <article class="markdown-body entry-content container-lg" itemprop="text"><h1>Taiko Name Plate Editor</h1>
 <p>太鼓の達人のネームプレートを作れるエディター<br>
 このプログラムの 自作発言 二次配布 改造等をすべて禁じます。</p>
@@ -99,6 +108,15 @@ Twitter : @taikoclane_roii</p>
 		  }
 		});
 	  }
+          function backgroundimage3(id){
+              document.getElementById("bi").innerHTML = '<img id="n3" class="plate" style="width: 290px;height: 44px;margin-bottom: -28px;position:relative;z-index:0;" src="name_plate_dan_' + id + '_640.png">';
+               html2canvas(document.getElementById("nameplate"),{
+		  onrendered: function(canvas){
+		    var imgData = canvas.toDataURL();
+		    document.getElementById("ss").href = imgData;
+		  }
+		});
+	  }	   
           backgroundimage(0)
           
 
