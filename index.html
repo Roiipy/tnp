@@ -127,7 +127,7 @@ Twitter : @taikoclane_roii</p>
   var $output2 = $('#n1');
   $input2.on('input', function(event) {
     var value = $input2.val();
-    $output2.text("https://donderhiroba.jp/imgsrc_title.php?taiko_no=" + value);
+    $output2.text("<img src='https://donderhiroba.jp/imgsrc_title.php?taiko_no=" + value + "'>取得できませんでした</img>");
     html2canvas(document.getElementById("nameplate"),{
   onrendered: function(canvas){
     var imgData = canvas.toDataURL();
