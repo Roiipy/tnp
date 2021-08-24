@@ -54,10 +54,12 @@
 <p>プレート位置が端末によってズレます。自分の端末に合わせて調節してください。※ダウンロードした画像がズレていないか確かめてください。</p>
                 <h3>称号</h3>
                 <input type="text" style="border-radius: 10px; outline:none" id="i1">
+		  <h3>太鼓判から称号を取得する</h3>
+		<input type="text" style="border-radius: 10px; outline:none" id="i5">
                 <h3>名前</h3>
                 <input type="text" style="border-radius: 10px; outline:none" id="i2">
       <h3>プレート背景</h3>
-      <h5>タッチで選択</h5>
+      <h5>段位の背景を選択した方は、名前の入力欄に「空白」を上手く入力して位置を調節してください。</h5>
       <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(0);"><img width="250" height="60" src="name_plate_0_0_640.png"></button></p>
       <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(1);"><img width="250" height="60" src="name_plate_0_1_640.png"></button></p>
       <p><button checked="checked" id="backimage" name="backimage" value="0" onclick="backgroundimage(2);"><img width="250" height="60" src="name_plate_0_2_640.png"></button></p>
@@ -119,8 +121,21 @@ Twitter : @taikoclane_roii</p>
 	  }	   
           backgroundimage(0)
           
-
-
+	    
+	    //太鼓判から称号取得
+  var $input2 = $('#i5');
+  var $output2 = $('#n1');
+  $input2.on('input', function(event) {
+    var value = $input2.val();
+    $output2.text("https://donderhiroba.jp/imgsrc_title.php?taiko_no=" + value);
+    html2canvas(document.getElementById("nameplate"),{
+  onrendered: function(canvas){
+    var imgData = canvas.toDataURL();
+    document.getElementById("ss").href = imgData;
+  }
+});
+  });
+//称号入力
 $(function() {
   var $input = $('#i1');
   var $output = $('#n1');
@@ -134,7 +149,7 @@ $(function() {
   }
 });
   });
-
+//
   var $input2 = $('#i2');
   var $output2 = $('#n2');
   $input2.on('input', function(event) {
